@@ -2,13 +2,12 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    'node_modules/preline/dist/*.js',
+    "./src/**/*.{js,jsx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [
-    require('preline/plugin'),
-  ],
+    require('@tailwindcss/forms'),
+  ]
 }
