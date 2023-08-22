@@ -31,7 +31,6 @@ app.get(
   '/auth/spotify/callback',
   passport.authenticate('spotify', { failureRedirect: '/login' }),
   function (req, res) {
-    // Successful authentication, redirect to your desired page.
     res.redirect('/');
   }
 );
@@ -39,24 +38,15 @@ app.get(
 // Configure both serve-favicon & static middleware
 // to serve from the production 'build' folder
 
-
-// Middleware to check and verify a JWT and
-// assign the user object from the JWT to req.user
-// app.use(require('./config/checkToken'));
-
 const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
-// app.use('/users', require('./routes/api/users'));
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-  });
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
-// app.get('/*', function(req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);
