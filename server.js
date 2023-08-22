@@ -31,7 +31,7 @@ app.get(
   '/auth/spotify/callback',
   passport.authenticate('spotify', { failureRedirect: '/login' }),
   function (req, res) {
-    res.redirect('/');
+    res.json();
   }
 );
 
@@ -42,10 +42,11 @@ const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 
+
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(port, function() {
