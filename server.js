@@ -31,7 +31,7 @@ app.get(
   '/auth/spotify/callback',
   passport.authenticate('spotify', { failureRedirect: '/login' }),
   function (req, res) {
-    res.json();
+    res.redirect(`http://localhost:5173/callback?code=${req.query.code}`);
   }
 );
 
