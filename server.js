@@ -26,35 +26,37 @@ app.use(passport.session());
 
 app.get('/auth/spotify', passport.authenticate('spotify', { scope: ['user-read-email', 'user-read-private', 'playlist-read-private', 'playlist-modify-private', 'playlist-modify-public', 'user-top-read'] }));
 
-app.get('/auth/spotify/callback', (req, res, next) => {
-  passport.authenticate('spotify', async (err, user, info) => {
-    if (err) {
-      console.error('Error in authentication:', err);
-      return res.status(500).send('Error in authentication');
-    }
+app.get('/auth/spotify/callback', passport.authenticate('spotify'), async (req, res) => {
+  const code = req.query.code;
+  const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
+  const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 
-    if (!user) {
-      return res.status(401).send('Unauthorized');
-    }
+  try {
+    const response = await axios.post('https://accounts.spotify.com/api/token', null, {
+      params: {
+        grant_type: 'authorization_code',
+        code: code,
+        redirect_uri: 'http://localhost:3001/auth/spotify/callback',
+      },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + Buffer.from(SPOTIFY_CLIENT_ID + ':' + SPOTIFY_CLIENT_SECRET).toString('base64'),
+      },
+    });
 
-    const accessToken = info.accessToken;
+    const accessToken = response.data.access_token;
     req.session.accessToken = accessToken;
 
-    // Log in the user
-    req.logIn(user, (err) => {
-      if (err) {
-        console.error('Error in login:', err);
-        return res.status(500).send('Error in login');
-      }
-
-      res.send(`
-      <script>
-        window.opener.postMessage('accessTokenSaved', 'http://localhost:5173');
-        window.close();
-      </script>
-      `);
-    });
-  })(req, res, next);
+    res.send(`
+    <script>
+      window.opener.postMessage('accessTokenSaved', 'http://localhost:5173');
+      window.close();
+    </script>
+    `);
+  } catch (error) {
+    console.error('Error fetching access token:', error);
+    res.status(500).send('Error fetching access token');
+  }
 });
 
 // Configure both serve-favicon & static middleware
