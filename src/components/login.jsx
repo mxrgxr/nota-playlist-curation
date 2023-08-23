@@ -6,9 +6,7 @@ export default function Login() {
   const openPopup = () => {
     const url = 'http://localhost:3001/auth/spotify';
 
-    return window.open(
-      url,
-    );
+    return window.open(url,);
   };
 
   const handleClick = () => {
@@ -17,18 +15,18 @@ export default function Login() {
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (popup && !popup.closed) {
-        if (popup.location.href.indexOf('http://localhost:3001/auth/spotify/callback') !== -1) {
-          const urlParams = new URLSearchParams(popup.location.search);
-          const code = urlParams.get('code');
-          console.log('Received OAuth code:', code);
-          popup.close();
-        }
+    const handleMessage = (event) => {
+      if (event.origin === 'http://localhost:3001' && event.data === 'accessTokenSaved') {
+        console.log('Access token saved in the session');
+        popup.close();
       }
-    }, 500);
-
-    return () => clearInterval(timer);
+    };
+  
+    window.addEventListener('message', handleMessage);
+  
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
   }, [popup]);
 
   return (
