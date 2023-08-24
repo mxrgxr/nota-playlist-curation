@@ -12,6 +12,12 @@ const userSchema = new Schema({
     email: {
       type: String,
     },
+    accessToken: {
+      type: String,
+    },
+    refreshToken: {
+      type: String,
+    },
 });
 
 module.exports = mongoose.model('User', userSchema);
