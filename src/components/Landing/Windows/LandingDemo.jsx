@@ -23,5 +23,5 @@ export default function LandingDemo(){
             </div>
           </div>
         </div>
-      );
+    );
 }
