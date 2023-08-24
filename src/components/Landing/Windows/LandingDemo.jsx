@@ -3,8 +3,8 @@ import OAuthButton from '../OAuthButton'
 
 export default function LandingDemo(){
     return (
-        <div className="bg-p-500 h-screen flex flex-col justify-center">
-          <div className="flex space-x-64 justify-center">
+        <div className="bg-p-500 h-screen flex flex-col justify-center overflow-scroll">
+          <div className="flex justify-center">
             <div className="">
               <DemoStep number={1} name="Create" showChevron />
             </div>

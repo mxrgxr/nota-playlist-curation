@@ -2,7 +2,7 @@ import Device from './Device'
 
 export default function DemoStep({number, name, showChevron, imgSrc}){
     return (
-        <div className="flex flex-col items-center space-y-4">
+        <div className="flex flex-col items-center">
           <div className="flex items-center space-x-4">
             <div className="bg-lt-ntr text-p-900 font-header text-h-lg font-bold w-24 h-24 rounded-full flex items-center justify-center">
               {number}

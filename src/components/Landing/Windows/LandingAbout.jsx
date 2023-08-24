@@ -1,6 +1,6 @@
 export default function LandingAbout(){
     return(
-        <div className="h-screen bg-p-700 text-lt-ntr font-body p-8 text-b-lg space-y-8">
+        <div className="h-screen bg-p-700 text-lt-ntr font-body p-8 text-b-lg space-y-8 overflow-scroll">
             <h1 className="font-header text-h-md">About <span className="font-bold">Nota</span></h1>
             <p>
             <span className="font-bold">Welcome to Nota</span>, an innovative application designed to give you unparalleled control over your Spotify playlists. Our goal is to provide you with a personalized listening experience that caters to your unique preferences, allowing you to discover new music and create playlists that truly resonate with you.

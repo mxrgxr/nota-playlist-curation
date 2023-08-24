@@ -4,7 +4,7 @@ import SpotifyLogo from '../SpotifyLogo'
 
 export default function LandingCTA(){
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen overflow-scroll">
         <div className="bg-p-800 flex flex-col justify-between w-3/5 p-16">
             <img className="w-64 self-start" src="/logo-lg.svg" alt="Logo" />
             <div className="flex flex-col space-y-8">
