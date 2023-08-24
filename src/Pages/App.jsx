@@ -1,9 +1,9 @@
-import OAuthButton from '../components/OAuthButton'
+import LandingPage from './LandingPage'
 
 export default function App() {
     return (
         <div>
-          <OAuthButton />
+          <LandingPage />
         </div>
     );
 }

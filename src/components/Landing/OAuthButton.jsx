@@ -28,7 +28,10 @@ export default function OAuthButton() {
 
   return (
     <div>
-      <button onClick={handleClick} class="bg-a-200 font-body text-btn-lg text-dk-ntr px-12 py-4 rounded-lg font-bold">Start Curating</button>
+      <button onClick={handleClick} class="flex items-center bg-a-200 font-body text-btn-lg text-dk-ntr px-8 py-4 rounded-lg font-bold hover:bg-a-100 space-x-4">
+        <img class="max-h-8" src="/spotify-icon-black.png" alt="Spotify icon" />
+        <span>Start Curating</span>
+      </button>
     </div>
   );
 }
