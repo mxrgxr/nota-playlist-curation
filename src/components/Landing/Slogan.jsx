@@ -1,8 +1,8 @@
 export default function Slogan(){
     return(
-        <div class="text-lt-ntr font-header">
-            <p class="text-h-lg ">Discover Your Symphony</p>
-            <p class="text-t-md">Craft playlists with precision and ease</p>
+        <div className="text-lt-ntr font-header">
+            <p className="text-h-lg ">Discover Your Symphony</p>
+            <p className="text-t-md">Craft playlists with precision and ease</p>
         </div>
     )
 }
