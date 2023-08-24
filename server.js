@@ -31,7 +31,7 @@ app.get(
   passport.authenticate('spotify'),
   (req, res) => {
     res.send(`<script>
-      window.opener.postMessage('success', 'http://localhost:5173');
+      window.opener.postMessage('success', '${process.env.SUCCESS_URL}');
       window.close();
     </script>`);
   }

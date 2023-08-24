@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 export default function OAuthButton({color}) {
   const [popup, setPopup] = useState(null);
 
-  const openPopup = () => window.open('http://localhost:3001/auth/spotify');
+  const openPopup = () => window.open(`${import.meta.env.VITE_AUTH_ROUTE}`);
 
   const handleClick = () => {
     const newPopup = openPopup();
@@ -12,7 +12,7 @@ export default function OAuthButton({color}) {
 
   useEffect(() => {
     const handleMessage = (event) => {
-      if (event.origin === 'http://localhost:3001' && event.data === 'success') {
+      if (event.origin === import.meta.env.VITE_ORIGIN_URL && event.data === 'success') {
         if (popup && !popup.closed) {
           popup.close();
         }
