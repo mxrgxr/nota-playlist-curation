@@ -1,5 +1,4 @@
-import './App.css'
-import OAuthButton from '../../components/OAuthButton'
+import OAuthButton from '../components/OAuthButton'
 
 export default function App() {
     return (

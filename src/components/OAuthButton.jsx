@@ -28,7 +28,7 @@ export default function OAuthButton() {
 
   return (
     <div>
-      <button Click={handleClick}>GET STARTED</button>
+      <button onClick={handleClick} class="bg-a-200 font-body text-btn-lg text-dk-ntr px-12 py-4 rounded-lg font-bold">Start Curating</button>
     </div>
   );
 }
