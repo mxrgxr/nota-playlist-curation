@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function Login() {
+export default function OAuthButton() {
   const [popup, setPopup] = useState(null);
 
   const openPopup = () => window.open('http://localhost:3001/auth/spotify');
@@ -28,7 +28,7 @@ export default function Login() {
 
   return (
     <div>
-      <button onClick={handleClick}>Login with Spotify</button>
+      <button Click={handleClick}>GET STARTED</button>
     </div>
   );
 }

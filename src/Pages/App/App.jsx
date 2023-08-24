@@ -1,10 +1,10 @@
 import './App.css'
-import Login from '../../components/login'
+import OAuthButton from '../../components/OAuthButton'
 
 export default function App() {
     return (
         <div>
-          <Login />
+          <OAuthButton />
         </div>
     );
 }
