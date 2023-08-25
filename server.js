@@ -11,7 +11,6 @@ const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use(
     session({
@@ -30,8 +29,9 @@ app.get(
   '/auth/spotify/callback',
   passport.authenticate('spotify'),
   (req, res) => {
+    const accessToken = req.user.accessToken;
     res.send(`<script>
-      window.opener.postMessage('success', '${process.env.SUCCESS_URL}');
+      window.opener.postMessage({ status: 'success', accessToken: '${accessToken}' }, '${process.env.SUCCESS_URL}');
       window.close();
     </script>`);
   }
@@ -43,10 +43,11 @@ app.get(
 const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
-
+app.use('/users', require('./routes/api/users'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
+app.use(express.static(path.join(__dirname, 'dist')));
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });

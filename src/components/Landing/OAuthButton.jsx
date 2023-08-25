@@ -12,7 +12,8 @@ export default function OAuthButton({color}) {
 
   useEffect(() => {
     const handleMessage = (event) => {
-      if (event.origin === import.meta.env.VITE_ORIGIN_URL && event.data === 'success') {
+      if (event.origin === import.meta.env.VITE_ORIGIN_URL && event.data.status === 'success') {
+        localStorage.setItem('accessToken', event.data.accessToken);
         if (popup && !popup.closed) {
           popup.close();
         }
