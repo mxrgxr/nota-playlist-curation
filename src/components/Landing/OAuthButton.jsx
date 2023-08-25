@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../AuthContext';
 
 export default function OAuthButton({color}) {
+  const { setAccessToken } = useContext(AuthContext);
   const [popup, setPopup] = useState(null);
 
   const openPopup = () => window.open(`${import.meta.env.VITE_AUTH_ROUTE}`);
@@ -14,18 +16,19 @@ export default function OAuthButton({color}) {
     const handleMessage = (event) => {
       if (event.origin === import.meta.env.VITE_ORIGIN_URL && event.data.status === 'success') {
         localStorage.setItem('accessToken', event.data.accessToken);
+        setAccessToken(event.data.accessToken);
         if (popup && !popup.closed) {
           popup.close();
         }
       }
     };
-  
+
     window.addEventListener('message', handleMessage);
-  
+
     return () => {
       window.removeEventListener('message', handleMessage);
     };
-  }, [popup]);
+  }, [popup, setAccessToken]);
 
   return (
     <button onClick={handleClick}
