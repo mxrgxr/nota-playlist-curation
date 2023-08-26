@@ -83,6 +83,9 @@ const userSchema = new Schema({
     refreshToken: {
       type: String,
     },
+    tokenExpiration: {
+      type: Number,
+    },
     playlists: [playlistSchema]
   });
 
