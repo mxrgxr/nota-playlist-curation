@@ -23,7 +23,7 @@ export default function PlaylistGrid() {
           {playlists.map((playlist) => (
             <PlaylistCard
               key={playlist.id}
-              imgSrc={playlist.images[0]?.url}
+              imgSrc={playlist.images[0]?.url || '/default-playlist.png'}
               playlistName={playlist.name}
             />
           ))}
