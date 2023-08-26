@@ -6,15 +6,16 @@ export default function PlaylistGrid() {
   const [playlists, setPlaylists] = useState([]);
 
   useEffect(() => {
-  async function fetchPlaylists() {
-    try {
-      const data = await playlistsAPI.getUserPlaylists();
-      setPlaylists(data);
-    } catch (error) {
-      console.error('Error fetching playlists:', error);
+    async function fetchPlaylists() {
+      try {
+        const accessToken = localStorage.getItem('accessToken');
+        const data = await playlistsAPI.getUserPlaylists(accessToken);
+        setPlaylists(data.items);
+      } catch (error) {
+        console.error('Error fetching playlists:', error);
+      }
     }
-  }
-  fetchPlaylists();
+    fetchPlaylists();
   }, []);
     
     return (
