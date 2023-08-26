@@ -14,6 +14,6 @@ router.get('/', async (req, res) => {
     } else {
       res.status(401).json({ error: 'Unauthorized' });
     }
-  });
+});
 
 module.exports = router;
