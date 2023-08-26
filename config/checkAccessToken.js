@@ -50,7 +50,7 @@ module.exports = async function checkAccessToken(req, res, next) {
         console.log('token expiration', user.tokenExpiration)
         await user.save();
         console.log('user model updated')
-        localStorage.setItem('token', accessToken);
+        localStorage.setItem('token', access_token);
         req.user = user;
       }
       next();
