@@ -1,7 +1,7 @@
-export default function GetRecommendations(){
-    return(
-        <div>
-            
-        </div>
-    )
-}
+export default function GetRecommendationsButton() {
+    return (
+      <button>
+        Get Recommendations
+      </button>
+    );
+}  

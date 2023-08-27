@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './LandingPage';
 import Dashboard from './Dashboard';
+import PlaylistDetails from './PlaylistDetails';
 import { AuthContext } from '../components/AuthContext';
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
       {user ? (
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/playlist/:playlistId" element={<PlaylistDetails />} />
           <Route path="/*" element={<Navigate to="/dashboard" />} />
         </Routes>
       ) : (

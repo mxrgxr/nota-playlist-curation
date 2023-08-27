@@ -7,4 +7,9 @@ export async function getUserPlaylists(accessToken) {
 
 export async function createPlaylist(playlistName, accessToken) {
     return sendRequest(BASE_URL, 'POST', { name: playlistName }, { Authorization: `Bearer ${accessToken}` });
-  }
+}
+
+export async function getPlaylistDetails(playlistId, accessToken){
+    console.log(playlistId)
+    return sendRequest(`${BASE_URL}/${playlistId}`, 'GET', null, { Authorization: `Bearer ${accessToken}` });
+}

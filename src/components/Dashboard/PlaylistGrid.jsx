@@ -25,6 +25,7 @@ export default function PlaylistGrid() {
               key={playlist.id}
               imgSrc={playlist.images[0]?.url || '/default-playlist.png'}
               playlistName={playlist.name}
+              playlistId={playlist.id}
             />
           ))}
         </div>
