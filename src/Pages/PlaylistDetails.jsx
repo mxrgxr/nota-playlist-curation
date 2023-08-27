@@ -32,8 +32,10 @@ export default function PlaylistDetails() {
     <div className="flex">
       <NavBar />
       <div className="p-8 bg-p-800 w-screen">
-        <PlaylistHeader playlistName={playlist.name} description={playlist.description} />
-        <GetRecommendations />
+        <div className="flex justify-between items-center mb-4">
+          <PlaylistHeader playlistName={playlist.name} description={playlist.description} />
+          <GetRecommendations />
+        </div>
         <TrackList tracks={playlist.tracks.items.map((item) => item.track)} />
       </div>
     </div>
