@@ -25,13 +25,13 @@ export default function PlaylistDetails() {
   }, [playlistId]);
 
   if (!playlist) {
-    return <div>Loading...</div>;
+    return <div>Fetching playlist</div>;
   }
 
   return (
-    <div>
+    <div className="flex">
       <NavBar />
-      <div>
+      <div className="p-8 bg-p-800 w-screen">
         <PlaylistHeader playlistName={playlist.name} description={playlist.description} />
         <GetRecommendations />
         <TrackList tracks={playlist.tracks.items.map((item) => item.track)} />
