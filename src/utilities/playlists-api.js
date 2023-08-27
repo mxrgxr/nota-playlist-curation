@@ -4,3 +4,7 @@ const BASE_URL = '/api/playlists';
 export async function getUserPlaylists(accessToken) {
     return sendRequest(BASE_URL, 'GET', null, { Authorization: `Bearer ${accessToken}` });
 }
+
+export async function createPlaylist(playlistName, accessToken) {
+    return sendRequest(BASE_URL, 'POST', { name: playlistName }, { Authorization: `Bearer ${accessToken}` });
+  }
