@@ -11,7 +11,7 @@ export default function TrackListItem({ track }) {
           </div>
           <p className="ml-8">{track.name}</p>
         </div>
-        <button class="bg-s-50 p-8 rounded-full">
+        <button class="bg-s-50 p-4 rounded-full">
             <img src="/delete-icon.svg" alt="Delete" />
         </button>
       </div>
