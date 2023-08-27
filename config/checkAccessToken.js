@@ -30,11 +30,8 @@ async function refreshAccessToken(refreshToken) {
 
 module.exports = async function checkAccessToken(req, res, next) {
     try {
-    console.log('check access token')
       const accessToken = req.headers.authorization.split(' ')[1];
-      console.log('access token', accessToken)
       const user = await User.findOne({ accessToken: accessToken });
-      console.log('user', user)
   
       if (!user) {
         return res.status(401).json({ error: 'Unauthorized' });
@@ -42,14 +39,10 @@ module.exports = async function checkAccessToken(req, res, next) {
   
       const now = new Date();
       if (user.tokenExpiration && user.tokenExpiration <= now) {
-        console.log('need to refresh token')
         const { access_token, expires_in } = await refreshAccessToken(user.refreshToken);
         user.accessToken = access_token;
-        console.log('updated access token')
         user.tokenExpiration = new Date(Date.now() + expires_in * 1000);
-        console.log('token expiration', user.tokenExpiration)
         await user.save();
-        console.log('user model updated')
         localStorage.setItem('token', access_token);
         req.user = user;
       }

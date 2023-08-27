@@ -1,7 +1,7 @@
 export default function PlaylistCard({ imgSrc, playlistName }) {
   return (
     <div className="bg-p-200 rounded-lg p-8 m-4 flex flex-col items-center">
-      <div className="">
+      <div>
         <img src={imgSrc} alt={playlistName} />
       </div>
       <div>
