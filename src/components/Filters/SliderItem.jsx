@@ -15,9 +15,9 @@ export default function SliderItem({ category }) {
   }
 
   return (
-    <div>
-      <h3>{category.title}</h3>
-      <p>{getDescription()}</p>
+    <div className="text-dk-ntr">
+      <h3 className="text-t-md font-header mb-8">{category.title}</h3>
+      <p className="font-body text-b-lg">{getDescription()}</p>
       <Slider
         value={value}
         min={0}

@@ -10,10 +10,10 @@ export default function CreatePlaylistFilter(){
     return(
         <div className="flex">
             <NavBar />
-            <div className="h-screen">
+            <div className="w-screen bg-p-800 p-8">
+                <GenerateButton />
                 <ArtistSearch />
                 <GenreSearch />
-                <GenerateButton />
                 <SliderList />
             </div>
         </div>
