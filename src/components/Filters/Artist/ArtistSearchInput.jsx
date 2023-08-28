@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export default function ArtistSearchInput({ onSearch, searchTerm, setSearchTerm }) {
 
   function handleSearch(e) {
