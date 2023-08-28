@@ -32,13 +32,14 @@ const playlistSchema = new Schema({
     type: String,
     required: true,
   },
-  tracks: [trackSchema], // Embed the Track schema
+  tracks: [trackSchema],
   uri: {
     type: String,
     required: true,
   },
   filters: {
     artists: [String],
+    genres: [String],
     acousticness: {
       min: Number,
       max: Number,
