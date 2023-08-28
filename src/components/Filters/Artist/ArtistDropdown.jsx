@@ -1,6 +1,6 @@
 export default function ArtistDropdown({ searchResults, onSelect }) {
   return (
-    <ul className="bg-s-100 font-body text-t-sm w-1/4">
+    <ul className="bg-s-100 font-body text-t-sm w-1/4 text-dk-ntr">
       {searchResults.map((artist, index) => (
         <div
           key={artist.id}
