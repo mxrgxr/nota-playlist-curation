@@ -15,7 +15,6 @@ export default function PlaylistDetails() {
       try {
         const accessToken = localStorage.getItem('accessToken');
         const data = await playlistsAPI.getPlaylistDetails(playlistId, accessToken);
-        console.log(data)
         setPlaylist(data);
       } catch (error) {
         console.error('Error fetching playlist details:', error);

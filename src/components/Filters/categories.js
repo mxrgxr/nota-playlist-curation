@@ -11,7 +11,7 @@ export const categories = [
     {
         title: "Acousticness: Unplugged or Fully Produced",
         descriptions: [
-            "Polished and produced electronic soundsn",
+            "Polished and produced electronic sounds",
             "A blend of electronic and organic elements",
             "Authentic, live, and natural tunes",
             "Pure, raw, and unplugged performances",

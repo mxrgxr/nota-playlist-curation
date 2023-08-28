@@ -47,6 +47,7 @@ app.use('/users', require('./routes/api/users'));
 app.use('/playlists', require('./routes/api/playlists'));
 app.use('/profiles', require('./routes/api/profile'))
 app.use('/search', require('./routes/api/search'))
+app.use('/recommendations', require('./routes/api/recommendations'))
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
