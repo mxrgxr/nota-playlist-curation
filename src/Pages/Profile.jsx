@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import * as profileAPI from '../utilities/profile-api';
 
 export default function Profile(){
+    const [user, setUser] = useState(null);
     const [displayName, setDisplayName] = useState('');
     const [profilePhoto, setProfilePhoto] = useState('');
     const [topTracks, setTopTracks] = useState([]);
@@ -36,7 +37,7 @@ export default function Profile(){
                 <TopItems topItems={topArtists} type="Artists" />
                 <TopItems topItems={topTracks} type="Tracks" />
             </div>
-            <LogOut />
+            <LogOut setUser={setUser} />
             </div>
         </div>
     );
