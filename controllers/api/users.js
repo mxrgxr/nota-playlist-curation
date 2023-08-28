@@ -5,7 +5,8 @@ const User = require('../../models/user');
 module.exports = {
   getPlaylists,
   createPlaylist,
-  getPlaylistDetails
+  getPlaylistDetails,
+  addTracksToPlaylist
 };
 
 async function getPlaylists(req, res) {
@@ -59,5 +60,26 @@ async function getPlaylistDetails(req, res) {
     res.json(playlistData);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching playlist details' });
+  }
+}
+
+async function addTracksToPlaylist(req, res) {
+  try {
+    const accessToken = req.headers.authorization.split(' ')[1];
+    const { playlistId } = req.params;
+    const trackUris = req.body.uris;
+
+    const response = await axios.post(`${BASE_URL}/playlists/${playlistId}/tracks`, {
+      uris: trackUris,
+    }, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+      },
+    });
+
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error adding tracks to the playlist:', error);
+    res.status(500).json({ error: 'Error fetching adding recommendations to playlist' });
   }
 }

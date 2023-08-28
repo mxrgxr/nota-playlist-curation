@@ -23,7 +23,8 @@ async function getRecommendations(req, res) {
           'Authorization': `Bearer ${accessToken}`,
         },
       });
-      res.json(response.data);
+      const trackUris = response.data.tracks.map((track) => track.uri);
+      res.json({ trackUris });
     } catch (error) {
       res.status(500).json({ error: 'Error getting recommendations' });
     }

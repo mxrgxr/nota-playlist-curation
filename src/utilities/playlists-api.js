@@ -12,3 +12,7 @@ export async function createPlaylist(playlistName, accessToken) {
 export async function getPlaylistDetails(playlistId, accessToken){
     return sendRequest(`${BASE_URL}/${playlistId}`, 'GET', null, { Authorization: `Bearer ${accessToken}` });
 }
+
+export async function addTracksToPlaylist(playlistId, trackUris, accessToken) {
+    return sendRequest(`${BASE_URL}/${playlistId}/tracks`, 'POST', {uris: trackUris}, { Authorization: `Bearer ${accessToken}` });
+}

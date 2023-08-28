@@ -6,6 +6,7 @@ import SliderList from "../components/Filters/SliderList"
 import { useParams } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import * as recommendationsAPI from '../utilities/recommendations-api'
+import * as playlistsAPI from '../utilities/playlists-api'
 
 export default function CreatePlaylistFilter(){
     const { playlistId } = useParams();
@@ -36,7 +37,9 @@ export default function CreatePlaylistFilter(){
             };
       
             try {
-              await recommendationsAPI.getRecommendations(data, accessToken);
+              const trackUrisResponse = await recommendationsAPI.getRecommendations(data, accessToken);
+              const trackUris = trackUrisResponse.trackUris
+              const response = await playlistsAPI.addTracksToPlaylist(playlistId, trackUris, accessToken);
             } catch (error) {
               console.error('Error sending recommendations request:', error);
             }

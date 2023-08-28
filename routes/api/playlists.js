@@ -6,5 +6,6 @@ const checkAccessToken = require('../../config/checkAccessToken')
 router.get('/', checkAccessToken, usersCtrl.getPlaylists);
 router.post('/', checkAccessToken, usersCtrl.createPlaylist);
 router.get('/:playlistId', checkAccessToken, usersCtrl.getPlaylistDetails);
+router.post('/:playlistId/tracks', checkAccessToken, usersCtrl.addTracksToPlaylist);
 
 module.exports = router;
