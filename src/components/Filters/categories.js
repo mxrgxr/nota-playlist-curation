@@ -44,13 +44,4 @@ export const categories = [
             "Purely instrumental tracks for a vocal-free experience",
           ],
     },
-    {
-        title: "Tempo: Find Your Pace",
-        descriptions: [
-            "Relaxing and soothing tracks for winding down or meditation",
-            "Easygoing tunes for casual listening or background musics",
-            "Lively and energetic tracks for working out or staying focused",
-            "High-intensity tracks for intense workouts or high-energy activities",
-          ],
-    },
 ]
