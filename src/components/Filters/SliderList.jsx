@@ -1,7 +1,7 @@
 import SliderItem from "./SliderItem";
 import { categories } from "./categories";
 
-export default function SliderList() {
+export default function SliderList({ onSliderValuesChange }) {
   return (
     <div>
       <p>For best curation, please select values for at least 3 categories.</p>
@@ -12,8 +12,11 @@ export default function SliderList() {
             index % 2 === 0 ? "bg-s-50" : "bg-s-100"
           }`}
         >
-          <SliderItem category={category}/>
-        </div>
+        <SliderItem
+          category={category}
+          onSliderValueChange={onSliderValuesChange}
+        />        
+      </div>
       ))}
     </div>
   );

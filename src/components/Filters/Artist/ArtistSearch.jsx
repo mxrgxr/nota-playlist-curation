@@ -4,7 +4,7 @@ import SelectedArtistChip from "./SelectedArtistChip"
 import {useState} from 'react';
 import * as artistsAPI from '../../../utilities/search-api'
 
-export default function ArtistSearch(){
+export default function ArtistSearch(props){
     const [searchResults, setSearchResults] = useState([]);
     const [selectedArtists, setSelectedArtists] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -16,8 +16,10 @@ export default function ArtistSearch(){
     }
 
     function handleSelect(artist) {
-      setSelectedArtists([...selectedArtists, artist]);
-      setSearchTerm(''); 
+      const newSelectedArtists = [...selectedArtists, artist];
+      setSelectedArtists(newSelectedArtists);
+      props.onSelectedArtistsChange(newSelectedArtists);
+      setSearchTerm('');
       setSearchResults([]);
     }
 

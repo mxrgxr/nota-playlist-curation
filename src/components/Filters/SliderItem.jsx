@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { Slider } from "@mui/material";
 
-export default function SliderItem({ category }) {
+export default function SliderItem({ category, onSliderValueChange }) {
   const [value, setValue] = useState(0);
-
-  function handleSliderChange(_, newValue) {
-    setValue(newValue);
-  }
 
   function getDescription() {
     const adjustedValue = value === 0 ? 0 : value - 0.25;
     const index = Math.floor(adjustedValue * 4);
     return value === 0 ? "" : category.descriptions[index];
+  }
+
+  function handleSliderChange(_, newValue) {
+    setValue(newValue);
+    const apiCategoryTitle = category.title.split(':')[0].trim().toLowerCase();
+    const minValue = newValue === 0 ? 0 : newValue - 0.25;
+    const maxValue = newValue;
+    onSliderValueChange(apiCategoryTitle, minValue, maxValue);
   }
 
   return (

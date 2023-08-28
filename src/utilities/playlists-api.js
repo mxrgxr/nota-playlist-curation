@@ -10,6 +10,5 @@ export async function createPlaylist(playlistName, accessToken) {
 }
 
 export async function getPlaylistDetails(playlistId, accessToken){
-    console.log(playlistId)
     return sendRequest(`${BASE_URL}/${playlistId}`, 'GET', null, { Authorization: `Bearer ${accessToken}` });
 }
