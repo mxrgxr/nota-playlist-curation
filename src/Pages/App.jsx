@@ -4,6 +4,7 @@ import LandingPage from './LandingPage';
 import Dashboard from './Dashboard';
 import PlaylistDetails from './PlaylistDetails';
 import Profile from './Profile';
+import CreatePlaylistFilter from './CreatePlaylistFilter';
 import { AuthContext } from '../components/AuthContext';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/playlist/:playlistId" element={<PlaylistDetails />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/playlist/:playlistId/filter" element={<CreatePlaylistFilter />} />
           <Route path="/*" element={<Navigate to="/dashboard" />} />
         </Routes>
       ) : (
