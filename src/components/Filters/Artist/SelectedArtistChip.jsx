@@ -1,7 +1,7 @@
-export default function SelectedArtistChip(){
-    return(
-        <div>
-            
-        </div>
-    )
+export default function SelectedArtistChip({ artist }) {
+    return (
+      <div className="">
+        {artist.name}
+      </div>
+    );
 }

@@ -1,4 +1,4 @@
-export default function SearchInput(){
+export default function GenreSearchInput(){
     return(
         <div>
             
