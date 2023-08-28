@@ -15,11 +15,9 @@ async function getUserProfile(req, res){
           'Authorization': `Bearer ${accessToken}`,
         },
     });
-    console.log(response)
       res.json(response.data);
     } catch (error) {
-      console.error('Error fetching playlists:', error);
-      res.status(500).json({ error: 'Error fetching playlists' });
+      res.status(500).json({ error: 'Error fetching user' });
     }
 }
 
@@ -31,11 +29,9 @@ async function getUserTopTracks(req, res){
           'Authorization': `Bearer ${accessToken}`,
         },
     });
-    console.log(response)
       res.json(response.data);
     } catch (error) {
-      console.error('Error fetching playlists:', error);
-      res.status(500).json({ error: 'Error fetching playlists' });
+      res.status(500).json({ error: 'Error fetching top tracks' });
     }
 }
 
@@ -47,10 +43,8 @@ async function getUserTopArtists(req, res){
           'Authorization': `Bearer ${accessToken}`,
         },
     });
-    console.log(response)
       res.json(response.data);
     } catch (error) {
-      console.error('Error fetching playlists:', error);
-      res.status(500).json({ error: 'Error fetching playlists' });
+      res.status(500).json({ error: 'Error fetching top artists' });
     }
 }

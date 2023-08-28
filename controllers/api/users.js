@@ -11,14 +11,13 @@ module.exports = {
 async function getPlaylists(req, res) {
   try{
       const accessToken = req.headers.authorization.split(' ')[1];
-      const response = await axios.get(BASE_URL + '/me/playlists', {
+      const response = await axios.get(BASE_URL + '/me/playlists/?limit=50', {
       headers: {
         'Authorization': `Bearer ${accessToken}`,
       },
   });
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching playlists:', error);
     res.status(500).json({ error: 'Error fetching playlists' });
   }
 }
@@ -39,14 +38,9 @@ async function createPlaylist(req, res) {
     });
 
     const playlistData = response.data;
-    console.log('playlist data', playlistData)
-
-    console.log('user playlist data saved')
 
     res.json({ status: 'success', data: playlistData });
   } catch (error) {
-    console.error('Error creating playlist:', error);
-    console.log('catch block controller')
     res.status(500).json({ error: 'Error creating playlist' });
   }
 }
@@ -64,7 +58,6 @@ async function getPlaylistDetails(req, res) {
     const playlistData = response.data;
     res.json(playlistData);
   } catch (error) {
-    console.error('Error fetching playlist details:', error);
     res.status(500).json({ error: 'Error fetching playlist details' });
   }
 }
