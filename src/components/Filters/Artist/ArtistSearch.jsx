@@ -7,6 +7,7 @@ import * as artistsAPI from '../../../utilities/search-api'
 export default function ArtistSearch(){
     const [searchResults, setSearchResults] = useState([]);
     const [selectedArtists, setSelectedArtists] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     async function handleSearch(searchTerm) {
         const accessToken = localStorage.getItem('accessToken');
@@ -15,7 +16,9 @@ export default function ArtistSearch(){
     }
 
     function handleSelect(artist) {
-        setSelectedArtists([...selectedArtists, artist]);
+      setSelectedArtists([...selectedArtists, artist]);
+      setSearchTerm(''); 
+      setSearchResults([]);
     }
 
     function handleRemove(artistToRemove) {
@@ -25,18 +28,22 @@ export default function ArtistSearch(){
     }
     
     return (
-    <div>
-      <ArtistSearchInput onSearch={handleSearch} />
-      <ArtistDropdown searchResults={searchResults} onSelect={handleSelect} />
-      <div className="py-4 space-x-4">
-        {selectedArtists.map((artist) => (
-          <SelectedArtistChip
-            key={artist.id}
-            artist={artist}
-            onRemove={handleRemove}
-          />
-        ))}
+      <div>
+        <ArtistSearchInput
+          onSearch={handleSearch}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
+        <ArtistDropdown searchResults={searchResults} onSelect={handleSelect} />
+        <div className="py-4 space-x-4">
+          {selectedArtists.map((artist) => (
+            <SelectedArtistChip
+              key={artist.id}
+              artist={artist}
+              onRemove={handleRemove}
+            />
+          ))}
+        </div>
       </div>
-    </div>
     );
 }
