@@ -29,6 +29,7 @@ export default function ArtistSearch(){
     
     return (
       <div>
+        <p>Select up to 5 artists, optional.</p>
         <ArtistSearchInput
           onSearch={handleSearch}
           searchTerm={searchTerm}

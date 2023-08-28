@@ -11,6 +11,7 @@ export default function GenreSearch() {
 
   return (
     <div>
+      <p>Select up to 5 genres, optional.</p>
       <GenreSearchInput
         genres={genres}
         onSelectedGenresChange={handleSelectedGenresChange}

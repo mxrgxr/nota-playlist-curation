@@ -4,6 +4,7 @@ import { categories } from "./categories";
 export default function SliderList() {
   return (
     <div>
+      <p>For best curation, please select values for at least 3 categories.</p>
       {categories.map((category, index) => (
         <div
           key={category.title}
