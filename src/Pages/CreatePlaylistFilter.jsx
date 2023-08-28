@@ -59,8 +59,11 @@ export default function CreatePlaylistFilter(){
             <NavBar />
             <div className="w-screen bg-p-800 p-8 text-lt-ntr font-body text-b-md space-y-4">
                 <GenerateButton onClick={() => setGenerateClicked(true)} />
-                <ArtistSearch onSelectedArtistsChange={setSelectedArtists} />
-                <GenreSearch onSelectedGenresChange={setSelectedGenres} />
+                <div>
+                    <p>Select up to 5 seeds combined for artists and genres</p>
+                    <ArtistSearch onSelectedArtistsChange={setSelectedArtists} />
+                    <GenreSearch onSelectedGenresChange={setSelectedGenres} />
+                </div>
                 <SliderList onSliderValuesChange={handleSliderValueChange} />
             </div>
         </div>

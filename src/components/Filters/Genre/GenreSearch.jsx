@@ -12,7 +12,7 @@ export default function GenreSearch(props) {
 
   return (
     <div>
-      <p>Select up to 5 genres, optional.</p>
+      <p>Search for genres</p>
       <GenreSearchInput
         genres={genres}
         onSelectedGenresChange={handleSelectedGenresChange}
