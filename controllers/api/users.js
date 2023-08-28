@@ -37,10 +37,9 @@ async function createPlaylist(req, res) {
         'Authorization': `Bearer ${accessToken}`,
       },
     });
+    console.log(response.data)
 
-    const playlistData = response.data;
-
-    res.json({ status: 'success', data: playlistData });
+    res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: 'Error creating playlist' });
   }

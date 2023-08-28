@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as playlistsAPI from '../../utilities/playlists-api';
 
 export default function CreatePlaylistModal({ onClose }) {
+    const navigate = useNavigate();
     const [playlistName, setPlaylistName] = useState('');
 
   const handleInputChange = (e) => {
@@ -12,13 +14,16 @@ export default function CreatePlaylistModal({ onClose }) {
     e.preventDefault();
     const accessToken = localStorage.getItem('accessToken');
     const res = await playlistsAPI.createPlaylist(playlistName, accessToken);
-    console.log(res)
-    if (res.ok) {
+    const playlistId = res.id;
+    const snapshotId = res.snapshot_id;
+  
+    if (playlistId && snapshotId) {
+      navigate(`/playlist/${playlistId}`);
       onClose();
     } else {
-        console.error('Error creating playlist:', error);
+      console.error('Error creating playlist:', error);
     }
-  };
+  };  
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm">
