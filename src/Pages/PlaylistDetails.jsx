@@ -27,17 +27,23 @@ export default function PlaylistDetails() {
     return <div>Fetching playlist</div>;
   }
 
+  const tracks = playlist.tracks.items.map((item) => item.track);
+
   return (
-    <div className="flex">
+    <div className="flex h-screen">
       <NavBar />
-      <div className="p-8 bg-p-800 w-screen">
+      <div className="p-8 bg-p-800 w-full">
         <div className="flex justify-between items-center mb-4">
           <PlaylistHeader playlistName={playlist.name} description={playlist.description} />
           <Link to={`/playlist/${playlistId}/filter`}>
             <GetRecommendations />
           </Link>
         </div>
-        <TrackList tracks={playlist.tracks.items.map((item) => item.track)} />
+        {tracks.length > 0 ? (
+          <TrackList tracks={tracks} />
+        ) : (
+          <div className="text-lt-ntr font-body text-t-sm">No tracks added yet</div>
+        )}
       </div>
     </div>
   );
