@@ -1,8 +1,8 @@
 export default function ProfileHeader({ displayName, profilePhoto }) {
     return (
-      <div className="">
-        <img className="rounded-full h-16 w-16" src={profilePhoto} alt="Profile" />
-        <h1 className="">{displayName}</h1>
+      <div className="flex items-center space-x-4">
+        <img className="rounded-full h-32 w-32" src={profilePhoto} alt="Profile" />
+        <h1 className="font-header text-h-lg">{displayName}</h1>
       </div>
     );
   }
