@@ -14,13 +14,15 @@ async function getRecommendations(req, res) {
         params: {
           seed_artists: artistIds,
           seed_genres: genres,
-          ...sliderValues,
+          target_energy: sliderValues.min_energy + (sliderValues.max_energy - sliderValues.min_energy) / 2,
+          target_tempo: sliderValues.min_tempo + (sliderValues.max_tempo - sliderValues.min_tempo) / 2,
+          target_instrumentalness: sliderValues.min_instrumentalness + (sliderValues.max_instrumentalness - sliderValues.min_instrumentalness) / 2,
+          target_danceability: sliderValues.min_danceability + (sliderValues.max_danceability - sliderValues.min_danceability) / 2,
         },
         headers: {
           'Authorization': `Bearer ${accessToken}`,
         },
       });
- 
       res.json(response.data);
     } catch (error) {
       res.status(500).json({ error: 'Error getting recommendations' });
