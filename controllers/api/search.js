@@ -20,9 +20,8 @@ async function searchArtists(req, res){
         },
         
     });
-    console.log(response.data.artists.items)
     res.json(response.data.artists.items);
     } catch (error) {
-      res.status(500).json({ error: 'Error fetching user' });
+      res.status(500).json({ error: 'Error searching artists' });
     }
 }
