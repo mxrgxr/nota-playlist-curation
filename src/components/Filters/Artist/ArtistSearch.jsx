@@ -17,14 +17,24 @@ export default function ArtistSearch(){
     function handleSelect(artist) {
         setSelectedArtists([...selectedArtists, artist]);
     }
+
+    function handleRemove(artistToRemove) {
+      setSelectedArtists(
+        selectedArtists.filter((artist) => artist.id !== artistToRemove.id)
+      );
+    }
     
     return (
     <div>
       <ArtistSearchInput onSearch={handleSearch} />
       <ArtistDropdown searchResults={searchResults} onSelect={handleSelect} />
-      <div>
+      <div className="py-4 space-x-4">
         {selectedArtists.map((artist) => (
-          <SelectedArtistChip key={artist.id} artist={artist} />
+          <SelectedArtistChip
+            key={artist.id}
+            artist={artist}
+            onRemove={handleRemove}
+          />
         ))}
       </div>
     </div>

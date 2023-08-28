@@ -3,8 +3,6 @@ const axios = require('axios')
 
 async function refreshAccessToken(refreshToken) {
     try {
-      console.log('refresh token request triggered')
-      console.log(refreshToken)
       const authOptions = {
         method: 'post',
         url: 'https://accounts.spotify.com/api/token',
