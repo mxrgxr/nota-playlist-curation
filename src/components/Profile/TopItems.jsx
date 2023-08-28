@@ -1,6 +1,6 @@
 export default function TopItems({ topItems, type }) {
     return (
-      <div className="bg-p-100 text-dk-ntr p-8 font-body rounded-lg">
+      <div className="bg-p-50 text-dk-ntr p-8 font-body rounded-lg">
         <h2 className="text-t-lg font-header mb-4">Top {type}</h2>
         <ul className="space-y-8 font-body">
           {topItems.map((item, index) => (
