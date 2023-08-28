@@ -9,31 +9,35 @@ export default function Profile(){
     const [displayName, setDisplayName] = useState('');
     const [profilePhoto, setProfilePhoto] = useState('');
     const [topTracks, setTopTracks] = useState([]);
-
+    const [topArtists, setTopArtists] = useState([]);
+  
     useEffect(() => {
-        async function fetchUserProfile() {
-            try {
-                const accessToken = localStorage.getItem('accessToken');
-                const userProfile = await profileAPI.getUserProfile(accessToken);
-
-                setDisplayName(userProfile.display_name);
-                setProfilePhoto(userProfile.images[0].url);
-            } catch (error) {
-                console.error('Error fetching user profile:', error);
-            }
-        }
-
-        fetchUserProfile();
+      async function fetchUserProfile() {
+        const accessToken = localStorage.getItem('accessToken');
+        const userProfile = await profileAPI.getUserProfile(accessToken);
+        const userTopTracks = await profileAPI.getUserTopTracks(accessToken);
+        const userTopArtists = await profileAPI.getUserTopArtists(accessToken);
+  
+        setDisplayName(userProfile.display_name);
+        setProfilePhoto(userProfile.images[0].url);
+        setTopTracks(userTopTracks.items);
+        setTopArtists(userTopArtists.items);
+      }
+  
+      fetchUserProfile();
     }, []);
 
-    return(
-        <div className="flex h-screen bg-p-800 text-lt-ntr">
+    return (
+        <div className="flex h-screen bg-p-800">
             <NavBar />
-            <div className="p-12 space-y-8">
-                <ProfileHeader displayName={displayName} profilePhoto={profilePhoto} />
-                <TopItems topTracks={topTracks} />
-                <LogOut />
+            <div className="flex flex-col p-8 justify-between">
+            <ProfileHeader displayName={displayName} profilePhoto={profilePhoto} />
+            <div className="flex flex-row space-x-8">
+                <TopItems topItems={topArtists} type="Artists" />
+                <TopItems topItems={topTracks} type="Tracks" />
+            </div>
+            <LogOut />
             </div>
         </div>
-    )
+    );
 }
