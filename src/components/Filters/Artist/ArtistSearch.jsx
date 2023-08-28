@@ -2,14 +2,15 @@ import ArtistDropdown from "./ArtistDropdown"
 import ArtistSearchInput from "./ArtistSearchInput";
 import SelectedArtistChip from "./SelectedArtistChip"
 import {useState} from 'react';
-import * as artistsAPI from '../../../utilities/artists-api'
+import * as artistsAPI from '../../../utilities/search-api'
 
 export default function ArtistSearch(){
     const [searchResults, setSearchResults] = useState([]);
     const [selectedArtists, setSelectedArtists] = useState([]);
 
     async function handleSearch(searchTerm) {
-        const data = await artistsAPI.searchArtists(searchTerm);
+        const accessToken = localStorage.getItem('accessToken');
+        const data = await artistsAPI.searchArtists(searchTerm, accessToken);
         setSearchResults(data);
     }
 
