@@ -1,39 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const trackSchema = new Schema({
-  id: {
-    type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  uri: {
-    type: String,
-    required: true,
-  },
-});
-
 const playlistSchema = new Schema({
   id: {
-    type: String,
-    required: true,
-  },
-  images: [
-    {
-      url: String,
-      width: Number,
-      height: Number,
-    },
-  ],
-  name: {
-    type: String,
-    required: true,
-  },
-  tracks: [trackSchema],
-  uri: {
     type: String,
     required: true,
   },
