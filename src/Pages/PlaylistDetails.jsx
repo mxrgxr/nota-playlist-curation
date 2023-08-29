@@ -34,7 +34,7 @@ export default function PlaylistDetails() {
       <NavBar />
       <div className="p-8 flex flex-col ml-48">
         <div className="flex items-center justify-between mb-4 space-x-8">
-          <PlaylistHeader playlistName={playlist.name} description={playlist.description} />
+          <PlaylistHeader playlistName={playlist.name} description={playlist.description} playlistUrl={playlist.external_urls.spotify} />
           <Link to={`/playlist/${playlistId}/filter`}>
             <GetRecommendations />
           </Link>

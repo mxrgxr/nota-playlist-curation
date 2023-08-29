@@ -8,7 +8,7 @@ export default function Dashboard() {
       <NavBar />
       <div className="flex flex-col ml-48 p-12">
         <div className="flex justify-between">
-          <p className="text-h-lg font-header text-lt-ntr">Dashboard</p>
+          <p className="text-h-lg font-header text-lt-ntr mb-4">Dashboard</p>
           <CreatePlaylist />
         </div>
         <PlaylistGrid />

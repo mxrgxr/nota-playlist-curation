@@ -10,14 +10,13 @@ export default function TrackListItem({ track }) {
           />
         </div>
         <div className="ml-8">
-          <p>{track.name}</p>
+          <a href={track.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+            <p>{track.name}</p>
+          </a>
           <p className="text-b-lg">{track.album.name}</p>
           <p className="text-b-md">{track.artists[0].name}</p>
         </div>
       </div>
-      <button className="bg-s-50 p-4 rounded-full">
-          <img src="/delete-icon.svg" alt="Delete" />
-      </button>
     </div>
   );
 }
