@@ -58,7 +58,10 @@ export default function CreatePlaylistFilter(){
         <div className="flex">
             <NavBar />
             <div className="w-screen bg-p-800 p-8 text-lt-ntr font-body text-b-md space-y-4">
-                <GenerateButton onClick={() => setGenerateClicked(true)} />
+                <div className="flex space-x-24">
+                    <h1 className="font-header text-t-lg">Select Playlist filters</h1>
+                    <GenerateButton onClick={() => setGenerateClicked(true)} />
+                    </div>
                 <div>
                     <p>Select up to 5 seeds combined for artists and genres</p>
                     <ArtistSearch onSelectedArtistsChange={setSelectedArtists} />
