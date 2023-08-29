@@ -19,7 +19,7 @@ export default function PlaylistGrid() {
   }, []);
     
     return (
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-4 gap-8">
           {playlists.map((playlist) => (
             <PlaylistCard
               key={playlist.id}

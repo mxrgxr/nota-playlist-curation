@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function PlaylistCard({ imgSrc, playlistName, playlistId }) {
   return (
-    <Link to={`/playlist/${playlistId}`} className="bg-p-200 rounded-lg p-8 m-4 flex flex-col items-center">
+    <Link to={`/playlist/${playlistId}`} className="bg-p-200 rounded-lg p-8 flex flex-col items-center">
       <div>
         <img src={imgSrc} alt={playlistName} />
       </div>
