@@ -22,7 +22,3 @@ export async function getUser() {
       return null;
     }
 }
-
-export function logOut() {
-  localStorage.removeItem('accessToken');
-}

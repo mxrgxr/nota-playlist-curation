@@ -15,6 +15,7 @@ export default function CreatePlaylistFilter(){
     const [sliderValues, setSliderValues] = useState({});
     const [generateClicked, setGenerateClicked] = useState(false);
     const navigate = useNavigate();
+    console.log(sliderValues)
 
     const handleSliderValueChange = (categoryTitle, minValue, maxValue) => {
         setSliderValues({
@@ -23,7 +24,6 @@ export default function CreatePlaylistFilter(){
           [`max_${categoryTitle}`]: maxValue,
         });
     };
-
     useEffect(() => {
         if (generateClicked) {
           async function sendRecommendationsRequest() {

@@ -12,10 +12,12 @@ export default function SliderItem({ category, onSliderValueChange }) {
 
   function handleSliderChange(_, newValue) {
     setValue(newValue);
-    const apiCategoryTitle = category.title.split(':')[0].trim().toLowerCase();
-    const minValue = newValue === 0 ? 0 : newValue - 0.25;
-    const maxValue = newValue;
-    onSliderValueChange(apiCategoryTitle, minValue, maxValue);
+    if (newValue !== 0) {
+      const apiCategoryTitle = category.title.split(':')[0].trim().toLowerCase();
+      const minValue = newValue - 0.25;
+      const maxValue = newValue;
+      onSliderValueChange(apiCategoryTitle, minValue, maxValue);
+    }
   }
 
   return (
