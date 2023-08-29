@@ -3,16 +3,16 @@ import OAuthButton from '../OAuthButton'
 
 export default function LandingDemo(){
     return (
-        <div className="bg-p-500 h-screen flex flex-col justify-center overflow-scroll">
+          <div className="bg-p-500 h-screen flex flex-col justify-center overflow-scroll">
           <div className="flex justify-center">
             <div className="">
-              <DemoStep number={1} name="Create" showChevron />
+              <DemoStep number={1} name="Create" showChevron imgSrc="/create-playlist.png" />
             </div>
             <div className="">
-              <DemoStep number={2} name="Filter" showChevron />
+              <DemoStep number={2} name="Filter" showChevron imgSrc="/filter-playlist.png" />
             </div>
             <div className="">
-              <DemoStep number={3} name="Add" />
+              <DemoStep number={3} name="Add" imgSrc="/add-items.png" />
             </div>
           </div>
           <div className="flex flex-col items-center space-y-12">
