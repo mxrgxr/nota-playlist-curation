@@ -1,11 +1,15 @@
-# Nota Playlist Curation App
+# [Nota Playlist Curation App](https://nota-playlist-curation-c9cd96b53a94.herokuapp.com/)
 
 Nota is a playlist curation app that provides personalized recommendations and guided curation for Spotify users, allowing them to discover new music and create playlists tailored to their unique preferences.
 
-## Getting Started
-
-Visit the deployed website [here](https://nota-playlist-curation-c9cd96b53a94.herokuapp.com/) and check out the feature planning board [here](https://trello.com/b/urj2jRZs/mern-project).
-
+## Screenshots
+![Landing Page](/public/landing-page.png)
+1. Create Spotify playlist
+![Create Playlist](/public/create-playlist.png)
+2. Choose your settings
+![Filter Playlist](/public/filter-playlist.png)
+3. Nota populates your playlist with Spotify recommendations
+![Add Items](/public/add-items.png)
 
 ### Technologies
 Frontend Development:<br>
