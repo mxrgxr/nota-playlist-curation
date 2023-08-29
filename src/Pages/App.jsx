@@ -5,9 +5,17 @@ import Dashboard from './Dashboard';
 import PlaylistDetails from './PlaylistDetails';
 import Profile from './Profile';
 import CreatePlaylistFilter from './CreatePlaylistFilter';
-import { AuthContext } from '../components/AuthContext';
+import { AuthContext, AuthProvider } from '../components/AuthContext';
 
 export default function App() {
+  return (
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
+  );
+}
+
+function AppRoutes() {
   const { user } = useContext(AuthContext);
 
   return (

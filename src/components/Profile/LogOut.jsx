@@ -1,12 +1,13 @@
-import { logOut } from '../../utilities/users-service';
+import { useContext } from 'react';
+import { AuthContext } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-export default function LogOut({ setUser }) {
+export default function LogOut() {
+  const { logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   function handleLogOut() {
     logOut();
-    setUser(null);
     navigate('/');
   }
 
