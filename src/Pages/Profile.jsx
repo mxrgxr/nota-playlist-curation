@@ -29,9 +29,9 @@ export default function Profile(){
     }, []);
 
     return (
-        <div className="flex w-full bg-p-800">
+        <div className="bg-p-800">
             <NavBar />
-            <div className="flex flex-col p-8 space-y-8">
+            <div className="flex flex-col p-8 space-y-8 ml-56">
             <ProfileHeader displayName={displayName} profilePhoto={profilePhoto} />
             <div className="flex flex-row space-x-8">
                 <TopItems topItems={topArtists} type="Artists" />

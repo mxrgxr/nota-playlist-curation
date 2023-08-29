@@ -4,7 +4,7 @@ import { categories } from "./categories";
 export default function SliderList({ onSliderValuesChange }) {
   return (
     <div>
-      <p>For best curation, please select values for at least 3 categories.</p>
+      <p className="mb-4">For best curation, please select values for at least 3 categories.</p>
       {categories.map((category, index) => (
         <div
           key={category.title}

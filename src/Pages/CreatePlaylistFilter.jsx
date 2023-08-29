@@ -55,10 +55,10 @@ export default function CreatePlaylistFilter(){
     }, [generateClicked, selectedArtists, selectedGenres, sliderValues]);      
 
     return(
-        <div className="flex">
+        <div className="bg-p-800">
             <NavBar />
-            <div className="w-screen bg-p-800 p-8 text-lt-ntr font-body text-b-md space-y-4">
-                <div className="flex space-x-24">
+            <div className=" p-8 text-lt-ntr font-body text-b-md space-y-4 ml-48 ">
+                <div className="flex justify-between">
                     <h1 className="font-header text-t-lg">Select Playlist filters</h1>
                     <GenerateButton onClick={() => setGenerateClicked(true)} />
                     </div>

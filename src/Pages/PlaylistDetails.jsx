@@ -30,16 +30,16 @@ export default function PlaylistDetails() {
   const tracks = playlist.tracks.items.map((item) => item.track);
 
   return (
-    <div className="flex bg-p-800 h-screen w-full">
+    <div className="bg-p-800">
       <NavBar />
-      <div className="p-8 h-full flex flex-col">
-        <div className="flex items-center mb-4 space-x-8">
+      <div className="p-8 flex flex-col ml-48">
+        <div className="flex items-center justify-between mb-4 space-x-8">
           <PlaylistHeader playlistName={playlist.name} description={playlist.description} />
           <Link to={`/playlist/${playlistId}/filter`}>
             <GetRecommendations />
           </Link>
         </div>
-        <div className="flex-grow">
+        <div>
           {tracks.length > 0 ? (
             <TrackList tracks={tracks} />
           ) : (
