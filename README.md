@@ -25,10 +25,10 @@ Design and Testing Tools:<br>
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 ### Next Steps
-- [ ] Prompt user to choose between a more manual or guided curation filter
-- [ ] Allow user to save filters to a playlist
-- [ ] Create preset filters based on mood or activities for user to generate their own playlists
-- [ ] Web player for user to preview songs before adding
-- [ ] Social media component for collaborative playlists and badges
-- [ ] Add custom tags to songs
-- [ ] Give user more control over theme for each playlist
+-[ ] Prompt user to choose between a more manual or guided curation filter
+-[ ] Allow user to save filters to a playlist
+-[ ] Create preset filters based on mood or activities for user to generate their own playlists
+-[ ] Web player for user to preview songs before adding
+-[ ] Social media component for collaborative playlists and badges
+-[ ] Add custom tags to songs
+-[ ] Give user more control over theme for each playlist
